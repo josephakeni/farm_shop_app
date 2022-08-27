@@ -34,8 +34,8 @@ pool.getConnection(function(err) {
     console.log('Connected to the MySQL server ==>.');
   });
   
-// Route traffic
-app.use(adminRoutes);
+// Route traffic and filtering
+app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
 // Add 404 Error Page
