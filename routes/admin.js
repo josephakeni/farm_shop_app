@@ -6,13 +6,19 @@ require('dotenv').config();
 let mysql = require('mysql2');
 
 const rootDir = require('../util/path');
-const { route } = require('./shop');
+// const { route } = require('./shop');
 
 const products = [];
 
 // /admin/add-pproduct => GET
-router.get('/add-product', function(req, res){
-    res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
+router.get('/add-product', (req, res) => {
+   res.render('add-product', {
+      pageTitle: 'Add Product',
+      path: '/admin/add-product',
+      formsCSS: true,
+      productCSS: true,
+      activeAddProduct: true
+   });
  });
 
  // /admin/add-pproduct => POST
