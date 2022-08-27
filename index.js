@@ -5,10 +5,11 @@ const app = express();
 require('dotenv').config();
 let mysql = require('mysql2');
 
-const adminRoutes = require('./routes/admin');
+const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Connect to MySQL Database
 const PORT = process.env.APP_PORT;
@@ -36,7 +37,7 @@ pool.getConnection(function(err) {
   });
   
 // Route traffic and filtering
-app.use('/admin', adminRoutes);
+app.use('/admin', adminData.routes);
 app.use(shopRoutes);
 
 // Add 404 Error Page
