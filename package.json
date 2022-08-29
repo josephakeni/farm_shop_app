@@ -2,9 +2,9 @@
   "name": "farm_shop_app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "nodemon index.js"
+    "test": "nodemon app.js"
   },
   "author": "Joseph Akeni",
   "license": "ISC",

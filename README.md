@@ -9,3 +9,6 @@ error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protoc
 
 #### Soln
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '[password]';
+
+### Image Encoder 
+https://elmah.io/tools/base64-image-encoder/
