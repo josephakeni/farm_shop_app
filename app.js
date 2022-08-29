@@ -13,7 +13,7 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Connect to MySQL Database
@@ -25,22 +25,22 @@ const user = 'jotonia';
 const port = process.env.MYSQL_PORT;
 
 var pool = mysql.createPool({
-    connectionLimit: 5,
-    host: host,
-    user: user,
-    password: password, 
-    database: database,
-    port: port
+  connectionLimit: 5,
+  host: host,
+  user: user,
+  password: password,
+  database: database,
+  port: port
 });
 
-pool.getConnection(function(err) {
-    if (err) {
-      return console.error('error: ' + err.message);
-    }
-  
-    console.log('Connected to the MySQL server ==>.');
-  });
-  
+pool.getConnection(function (err) {
+  if (err) {
+    return console.error('error: ' + err.message);
+  }
+
+  console.log('Connected to the MySQL server ==>.');
+});
+
 // Route traffic and filtering
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
@@ -48,6 +48,6 @@ app.use(shopRoutes);
 // Add 404 Error Page
 app.use(errorController.get404);
 
-app.listen(PORT, ()=>{
-    console.log(`Server started on http://localhost:${PORT}`)
+app.listen(PORT, () => {
+  console.log(`Server started on http://localhost:${PORT}`)
 });
