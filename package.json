@@ -15,7 +15,8 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.19",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "sequelize": "^6.21.4"
   },
   "devDependencies": {
     "dotenv": "^16.0.1"
