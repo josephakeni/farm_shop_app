@@ -7,7 +7,7 @@ require('dotenv').config();
 const PORT = process.env.APP_PORT;
 
 const errorController = require('./controllers/error');
-const db = require('./util/database');
+const sequelize = require('./util/database');
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -25,6 +25,13 @@ app.use(shopRoutes);
 // Add 404 Error Page
 app.use(errorController.get404);
 
-app.listen(PORT, () => {
-  console.log(`Server started on http://localhost:${PORT}`)
+sequelize.sync().then(result => {
+  console.log(result);
+  app.listen(PORT, () => {
+    console.log(`Server started on http://localhost:${PORT}`)
+  });
+})
+.catch(err => {
+  console.log(err);
 });
+
